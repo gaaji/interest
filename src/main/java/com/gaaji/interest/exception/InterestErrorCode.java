@@ -18,6 +18,8 @@ public enum InterestErrorCode implements ErrorCode {
             "PostType 인자에 null이 들어왔습니다."),
     INPUT_INVALID_POST_ID(HttpStatus.BAD_REQUEST, "i-0005",
             "사용할 수 없는 PostId를 전달했습니다."),
+	NO_SEARCH(HttpStatus.BAD_REQUEST, "i-0006","차단 해제 대상자를 찾지 못했습니다."),
+
     ;
 
     private final HttpStatus httpStatus;

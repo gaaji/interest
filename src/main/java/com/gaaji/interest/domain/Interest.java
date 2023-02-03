@@ -42,8 +42,11 @@ public class Interest {
             throw new InputNullDataOnPostTypeException();
     }
 
-    public String getInterestId(){
+    public String getInterestIdToString() {
         return interestId.getId();
+    }
+    public InterestId getInterestId(){
+        return this.interestId;
     }
     public String getUserId(){
         return userId.getId();

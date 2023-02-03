@@ -1,5 +1,6 @@
 package com.gaaji.interest.domain;
 
+import com.gaaji.interest.exception.InputBlankDataOnInterestIdException;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.AccessType;
 import org.springframework.data.annotation.AccessType.Type;
+import org.springframework.util.StringUtils;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -20,7 +22,13 @@ public class InterestId implements Serializable {
     private String id;
 
     public static InterestId of(String id){
+        validateBlankData(id);
         return new InterestId(id);
+    }
+
+    private static void validateBlankData(String id) {
+        if(!StringUtils.hasText(id))
+            throw new InputBlankDataOnInterestIdException();
     }
 
     public String getId(){

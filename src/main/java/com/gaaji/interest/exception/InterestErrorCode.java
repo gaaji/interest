@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 @Getter
 public enum InterestErrorCode implements ErrorCode {
 
-    ,
+	NO_SEARCH(HttpStatus.BAD_REQUEST, "i-0001","차단 해제 대상자를 찾지 못했습니다."),
 
     ;
 	

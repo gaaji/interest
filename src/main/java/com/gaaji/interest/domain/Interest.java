@@ -36,8 +36,8 @@ public class Interest {
         return new Interest(interestId, userId,  postId, postType, LocalDateTime.now());
     }
 
-    public String getInterestId(){
-        return interestId.getId();
+    public InterestId getInterestId(){
+        return this.interestId;
     }
     public String getUserId(){
         return userId.getId();

@@ -15,7 +15,7 @@ import com.gaaji.interest.repository.JpaInterestRepository;
 
 @Transactional
 @SpringBootTest
-public class BlockDeleteJpaTest {
+public class InterestDeleteJpaTest {
 
 	@Autowired
     JpaInterestRepository jpaInterestRepository;

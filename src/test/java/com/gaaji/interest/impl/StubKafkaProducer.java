@@ -11,7 +11,6 @@ public class StubKafkaProducer implements KafkaProducer {
 
 	@Override
 	public void sendDecreaseInterestCount(String postId) {
-		// TODO Auto-generated method stub
 		
 	}
 }

@@ -1,5 +1,6 @@
 package com.gaaji.interest.repository;
 
+import com.gaaji.interest.domain.PostType;
 import org.springframework.data.domain.PageRequest;
 import com.gaaji.interest.domain.Interest;
 import com.gaaji.interest.domain.PostId;
@@ -25,4 +26,5 @@ public interface InterestRepository {
 
 	List<Interest> findByUserId(UserId userId, PageRequest pageRequest);
 
+    boolean isExistInterest(PostId postId, UserId userId, PostType postType);
 }

@@ -1,5 +1,6 @@
 package com.gaaji.interest.repository;
 
+import com.gaaji.interest.domain.PostType;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +21,8 @@ public interface JpaInterestRepository extends JpaRepository<Interest, InterestI
 
 
     Optional<Interest> findByPostId(PostId postId);
+
+	boolean existsByPostIdAndUserIdAndAndPostType(PostId postId, UserId userId, PostType postType);
     
 
 }

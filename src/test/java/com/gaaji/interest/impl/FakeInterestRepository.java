@@ -3,6 +3,7 @@ package com.gaaji.interest.impl;
 import com.gaaji.interest.domain.Interest;
 import com.gaaji.interest.domain.InterestId;
 import com.gaaji.interest.domain.PostId;
+import com.gaaji.interest.domain.PostType;
 import com.gaaji.interest.domain.UserId;
 import com.gaaji.interest.repository.InterestRepository;
 import java.util.HashMap;
@@ -46,4 +47,12 @@ public class FakeInterestRepository implements InterestRepository {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+    @Override
+    public boolean isExistInterest(PostId postId, UserId userId, PostType postType) {
+        return storage.values().stream()
+                .filter(i -> PostId.of(i.getPostId()).equals(postId))
+                .filter(i -> UserId.of(i.getUserId()).equals(userId))
+                .anyMatch(i -> i.getPostType().equals(postType));
+    }
 }

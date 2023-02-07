@@ -1,5 +1,6 @@
 package com.gaaji.interest.repository;
 
+import com.gaaji.interest.domain.PostType;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,7 +37,12 @@ public class InterestRepositoryImpl implements InterestRepository{
 		return this.jpaInterestRepository.findByUserId(userId, pageRequest);
 	}
 
-    @Override
+	@Override
+	public boolean isExistInterest(PostId postId, UserId userId, PostType postType) {
+		return jpaInterestRepository.existsByPostIdAndUserIdAndAndPostType(postId, userId, postType);
+	}
+
+	@Override
     public Optional<Interest> findByPostId(PostId postId) {
         return jpaInterestRepository.findByPostId(postId);
     }

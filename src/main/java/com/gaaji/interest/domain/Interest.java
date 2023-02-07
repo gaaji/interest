@@ -1,5 +1,6 @@
 package com.gaaji.interest.domain;
 
+import com.gaaji.interest.exception.InputNullDataOnPostTypeException;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import javax.persistence.Embedded;
@@ -12,7 +13,6 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.AccessType;
 import org.springframework.data.annotation.AccessType.Type;
-import org.springframework.data.annotation.CreatedDate;
 
 @AccessType(Type.FIELD)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
@@ -33,9 +33,18 @@ public class Interest {
     private LocalDateTime createdAt;
 
     public static Interest of(InterestId interestId,UserId userId, PostId postId,PostType postType ){
+        validateBlankDataOnPostType(postType);
         return new Interest(interestId, userId,  postId, postType, LocalDateTime.now());
     }
 
+    private static void validateBlankDataOnPostType(PostType postType) {
+        if(postType == null)
+            throw new InputNullDataOnPostTypeException();
+    }
+
+    public String getInterestIdToString() {
+        return interestId.getId();
+    }
     public InterestId getInterestId(){
         return this.interestId;
     }

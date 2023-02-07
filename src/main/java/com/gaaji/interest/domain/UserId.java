@@ -1,5 +1,6 @@
 package com.gaaji.interest.domain;
 
+import com.gaaji.interest.exception.InputBlankDataOnUserIdException;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -8,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.AccessType;
 import org.springframework.data.annotation.AccessType.Type;
+import org.springframework.util.StringUtils;
 
 @AccessType(Type.FIELD)
 @AllArgsConstructor
@@ -19,7 +21,13 @@ public class UserId {
     private String id;
 
     public static UserId of(String userId) {
+        validateBlankData(userId);
         return new UserId(userId);
+    }
+
+    private static void validateBlankData(String userId) {
+        if(!StringUtils.hasText(userId))
+            throw new InputBlankDataOnUserIdException();
     }
 
     public String getId(){

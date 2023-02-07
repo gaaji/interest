@@ -6,8 +6,11 @@ import com.gaaji.interest.domain.PostId;
 import com.gaaji.interest.domain.UserId;
 import com.gaaji.interest.repository.InterestRepository;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+
+import org.springframework.data.domain.PageRequest;
 
 public class FakeInterestRepository implements InterestRepository {
 
@@ -37,4 +40,10 @@ public class FakeInterestRepository implements InterestRepository {
     public void delete(Interest interest) {
 
     }
+
+	@Override
+	public List<Interest> findByUserId(UserId userId, PageRequest pageRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

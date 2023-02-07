@@ -1,6 +1,17 @@
 
 
 spring:
+  profiles:
+    group:
+      "default":
+        - "single"
+      "single":
+        - "single"
+      "local":
+        - "local"
+      "docker":
+        - "docker"
+      "prod":
   h2:
     console:
       enabled: true

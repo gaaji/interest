@@ -26,12 +26,12 @@ public class InterestCreateService {
 
         validatePostId(postId);
         createEntityAndSave(postId, postType, authId);
-        sendCommandToUsedItemService();
+        sendCommandToUsedItemService(postId);
 
     }
 
-    private void sendCommandToUsedItemService() {
-        kafkaProducer.sendIncreaseInterestCount();
+    private void sendCommandToUsedItemService(String postId) {
+        kafkaProducer.sendIncreaseInterestCount(postId);
     }
 
     private void createEntityAndSave(String postId, PostType postType, String authId) {

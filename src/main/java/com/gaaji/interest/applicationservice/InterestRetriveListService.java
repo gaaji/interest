@@ -23,7 +23,7 @@ public class InterestRetriveListService {
 	
 	public List<Interest> retriveInterestList(String userId, int pageNum) {
 		
-		PageRequest pageRequest = PageRequest.of(pageNum, 10, Sort.by("interest.createdAt").descending());
+		PageRequest pageRequest = PageRequest.of(pageNum, 10, Sort.by("createdAt").descending());
 		return this.interestRepository.findByUserId(UserId.of(userId), pageRequest);
 		
 	}

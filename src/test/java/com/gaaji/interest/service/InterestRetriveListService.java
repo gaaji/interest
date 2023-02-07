@@ -35,7 +35,7 @@ public class InterestRetriveListService {
         	this.jpaInterestRepository.save(interest);
     	}
     	
-    	PageRequest pageRequest = PageRequest.of(1, 10, Sort.by("interest.createdAt").descending());
+    	PageRequest pageRequest = PageRequest.of(1, 10, Sort.by("createdAt").descending());
 		List<Interest> interests = this.jpaInterestRepository.findByUserId(UserId.of("user"), pageRequest);
     	Interest interest = this.jpaInterestRepository.findByUserIdAndPostId(UserId.of("user"), PostId.of("post1")).orElseThrow(() -> new NoSearchException());;
 

@@ -13,4 +13,9 @@ public class KafkaProducerImpl implements KafkaProducer{
     public void sendIncreaseInterestCount(String postId)  {
         this.kafkaTemplate.send("used-item-increase-interest-count", postId);
     }
+    
+    @Override
+    public void sendDecreaseInterestCount(String postId)  {
+        this.kafkaTemplate.send("used-item-decrease-interest-count", postId);
+    }
 }

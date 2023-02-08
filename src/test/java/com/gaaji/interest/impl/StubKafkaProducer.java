@@ -8,4 +8,9 @@ public class StubKafkaProducer implements KafkaProducer {
     public void sendIncreaseInterestCount(String postId) {
 
     }
+
+	@Override
+	public void sendDecreaseInterestCount(String postId) {
+		
+	}
 }

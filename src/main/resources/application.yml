@@ -1,0 +1,27 @@
+spring:
+  profiles:
+    group:
+      "default":
+        - "single"
+      "single":
+        - "single"
+      "local":
+        - "local"
+      "docker":
+        - "docker"
+      "prod":
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    generate-ddl: true
+    defer-datasource-initialization: true
+  application:
+    name: interest-service
+  config:
+    import: kafka.yml
